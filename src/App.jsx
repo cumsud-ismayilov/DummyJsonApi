@@ -1,10 +1,16 @@
-
+import CategoryFilter from "./components/CategoryFilter/CategoryFilter"
+import Navbar from "./Layout/Navbar/Navbar"
+import ProductList from "./components/ProductList/Product"
+import { useState } from "react";
 function App() {
-  
+  const [selected, setSelected] = useState("all");
+  const [searchItem, setSearchItem] = useState("")
 
   return (
     <>
-      <h1>salam</h1>
+      <Navbar setSearchItem={setSearchItem}/>
+      <CategoryFilter selected = {selected} setSelected={setSelected}/>
+      <ProductList selected = {selected} setSelected={setSelected} searchItem={searchItem}/>
     </>
   )
 }
